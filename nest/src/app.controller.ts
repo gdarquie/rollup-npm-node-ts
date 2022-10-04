@@ -8,16 +8,9 @@ export class AppController {
 
   @Get()
   async getHello(): Promise<string> {
-    // const aha = require('aha');
-    // console.log(aha.welcome);
-    // console.log(aha.tester());
-    // const res = await aha.work();
-    // if (res.data) console.log(res.data);
-
     console.log(tester());
     console.log(welcome);
 
     return (await work()).data;
-    // return this.appService.getHello();
   }
 }

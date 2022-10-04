@@ -24,6 +24,10 @@ var require$$1__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$1$1);
 var require$$1__default$2 = /*#__PURE__*/_interopDefaultLegacy(require$$1$2);
 var require$$6__default = /*#__PURE__*/_interopDefaultLegacy(require$$6);
 
+var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+var dist = {};
+
 var axios$2 = {exports: {}};
 
 var axios$1 = {exports: {}};
@@ -15589,20 +15593,41 @@ axios$1.exports.default = axios;
 	module.exports = axios$1.exports;
 } (axios$2));
 
+var tester_module = {};
+
+Object.defineProperty(tester_module, "__esModule", { value: true });
+tester_module.testerModule = void 0;
 const testerModule = () => {
     return 'This response has been returned by tester module';
 };
+tester_module.testerModule = testerModule;
 
-const welcome = "This is a message from the demo package";
-
-async function work() { 
-    return await axios$2.exports.post('https://ptsv2.com/t/373dw-1664806001/post');
+var __awaiter = (commonjsGlobal && commonjsGlobal.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (commonjsGlobal && commonjsGlobal.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(dist, "__esModule", { value: true });
+exports.tester = dist.tester = exports.work = dist.work = exports.welcome = dist.welcome = void 0;
+const axios_1 = __importDefault(axios$2.exports);
+const tester_module_1 = tester_module;
+exports.welcome = dist.welcome = "This is a message from the demo package";
+function work() {
+    return __awaiter(this, void 0, void 0, function* () {
+        return yield (0, axios_1.default)('https://ptsv2.com/t/373dw-1664806001/post');
+    });
 }
-
+exports.work = dist.work = work;
 function tester() {
-    return testerModule();
+    return (0, tester_module_1.testerModule)();
 }
+exports.tester = dist.tester = tester;
 
-exports.tester = tester;
-exports.welcome = welcome;
-exports.work = work;
+exports["default"] = dist;

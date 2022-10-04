@@ -1,4 +1,4 @@
-import { post } from 'axios';
+import post from 'axios';
 import { testerModule } from './tester/tester.module';
 
 export const welcome = "This is a message from the demo package";
